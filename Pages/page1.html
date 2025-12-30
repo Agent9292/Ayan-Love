@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mammi 💖</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink1:#FF69B4;
+  --pink2:#FF1493;
+  --bg:linear-gradient(135deg,#FFB6C1,#FFF0F5,#FF69B4);
+  --btn:linear-gradient(135deg,#FF69B4,#FF1493,#DC143C);
+  --shadow:rgba(255,105,180,.35);
+  --h:'Great Vibes',cursive;
+  --s:'Alex Brush',cursive;
+  --b:'Poppins',sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  min-height:100vh;
+  background:var(--bg);
+  display:flex;
+  align-items:flex-start;   /* ✅ */
+  justify-content:center;
+  font-family:var(--b);
+  overflow-y:auto;          /* ✅ SCROLL ENABLED */
+  padding:3rem 0;
+}
+
+/* falling hearts */
+.heart{
+  position:fixed;           /* ✅ FIXED */
+  font-size:22px;
+  animation:fall linear infinite;
+  opacity:.8;
+  pointer-events:none;
+  z-index:1;
+}
+@keyframes fall{
+  from{transform:translateY(-10vh) scale(1)}
+  to{transform:translateY(110vh) scale(1.4)}
+}
+
+.box{
+  background:rgba(255,255,255,.88);
+  padding:3rem 2rem;
+  border-radius:2rem;
+  text-align:center;
+  max-width:420px;
+  width:90%;
+  box-shadow:0 20px 45px var(--shadow);
+  animation:fade 1.4s ease forwards;
+  position:relative;
+  z-index:5;
+}
+@keyframes fade{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:none}
+}
+
+h1{
+  font-family:var(--h);
+  font-size:3.5rem;
+  background:var(--btn);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:.5rem;
+}
+
+p{
+  font-family:var(--s);
+  font-size:1.6rem;
+  color:var(--pink2);
+  margin-bottom:2rem;
+}
+
+.big-heart{
+  font-size:5rem;
+  animation:pulse 1.8s infinite;
+  margin-bottom:2rem;
+}
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+  100%{transform:scale(1)}
+}
+
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  color:#fff;
+  background:var(--btn);
+  padding:1rem 2.8rem;
+  border-radius:3rem;
+  font-family:var(--s);
+  font-size:1.6rem;
+  box-shadow:0 10px 25px var(--shadow);
+  animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+  from{box-shadow:0 0 15px rgba(255,105,180,.6)}
+  to{box-shadow:0 0 30px rgba(255,20,147,.95)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>Mammi 💖</h1>
+  <p>From your Pappi 💙</p>
+
+  <div class="big-heart">❤️</div>
+
+  <a href="#" class="btn">Open My Love 💌</a>
+</div>
+
+<script>
+const hearts=["💖","💕","💗","❤️","💓"];
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=4+Math.random()*3+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7000);
+},400);
+</script>
+
+</body>
+</html>
