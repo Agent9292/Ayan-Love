@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Love 💖</title>
+
+  <!-- Google Fonts (same as your theme) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-pink: #FF69B4;
+      --deep-pink: #FF1493;
+      --gradient-soft: linear-gradient(135deg, #FFB6C1, #FFF0F5, #FF69B4);
+      --gradient-primary: linear-gradient(135deg, #FF69B4, #FF1493, #DC143C);
+      --shadow: rgba(255, 105, 180, 0.3);
+
+      --font-heading: 'Great Vibes', cursive;
+      --font-special: 'Alex Brush', cursive;
+      --font-body: 'Poppins', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--gradient-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      overflow: hidden;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      color: var(--primary-pink);
+      animation: float 6s infinite ease-in-out;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.2); }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    .page1 {
+      text-align: center;
+      background: rgba(255,255,255,0.85);
+      padding: 3rem 2rem;
+      border-radius: 2rem;
+      box-shadow: 0 15px 40px var(--shadow);
+      max-width: 400px;
+      width: 90%;
+      position: relative;
+      z-index: 10;
+    }
+
+    .title {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-family: var(--font-special);
+      font-size: 1.8rem;
+      color: var(--deep-pink);
+      margin-bottom: 2rem;
+    }
+
+    .big-heart {
+      font-size: 5rem;
+      animation: pulse 1.8s infinite;
+      margin-bottom: 2rem;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    .open-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border-radius: 3rem;
+      background: var(--gradient-primary);
+      color: #fff;
+      font-family: var(--font-special);
+      font-size: 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 10px 25px var(--shadow);
+      transition: 0.3s ease;
+    }
+
+    .open-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px var(--shadow);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="top:10%; left:15%;">💖</div>
+  <div class="heart" style="top:70%; left:80%;">💕</div>
+  <div class="heart" style="top:40%; left:5%;">💗</div>
+  <div class="heart" style="top:20%; left:85%;">💓</div>
+
+  <!-- Page 1 Content -->
+  <div class="page1">
+    <div class="title">My Love</div>
+    <div class="subtitle">Open This 💌</div>
+    <div class="big-heart">❤️</div>
+
+    <!-- Redirect abhi empty -->
+    <a href="#" class="open-btn">Open My Love 💖</a>
+  </div>
+
+</body>
+</html>
