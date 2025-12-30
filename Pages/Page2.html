@@ -16,23 +16,27 @@ body{
   overflow-x:hidden;
 }
 
+/* 🌸 Soft blurred hearts */
 .hearts{
   position:fixed;
   inset:0;
   pointer-events:none;
+  filter:blur(2.5px);
 }
 
 .heart{
   position:absolute;
   font-size:26px;
-  animation:fly 6s linear infinite;
+  opacity:.6;
+  animation:fly 7s linear infinite;
 }
 
 @keyframes fly{
-  from{transform:translateY(110vh)}
-  to{transform:translateY(-10vh)}
+  from{transform:translateY(110vh) scale(.8)}
+  to{transform:translateY(-10vh) scale(1.2)}
 }
 
+/* Layout */
 .wrapper{
   min-height:100dvh;
   display:flex;
@@ -82,7 +86,9 @@ h1{
   color:#FF1493;
 }
 
-button{
+button, .next{
+  display:inline-block;
+  margin-top:1rem;
   border:none;
   padding:1rem 2.5rem;
   border-radius:3rem;
@@ -90,8 +96,10 @@ button{
   background:linear-gradient(135deg,#FF69B4,#FF1493);
   color:#fff;
   cursor:pointer;
+  text-decoration:none;
 }
 
+/* Kiss pop */
 .kiss{
   position:fixed;
   font-size:28px;
@@ -119,10 +127,15 @@ button{
 
     <div class="count"><span id="c">0</span> 💋</div>
     <button onclick="kiss()">Send a Kiss 💋</button>
+
+    <!-- ✅ NEXT SURPRISE -->
+    <br>
+    <a href="next.html" class="next">Next Surprise ➜</a>
   </div>
 </div>
 
 <script>
+/* Hearts */
 const hearts=["💖","💕","💗","💓","❤️"];
 const box=document.querySelector(".hearts");
 
@@ -132,9 +145,10 @@ setInterval(()=>{
   h.innerText=hearts[Math.floor(Math.random()*hearts.length)];
   h.style.left=Math.random()*100+"vw";
   box.appendChild(h);
-  setTimeout(()=>h.remove(),6000);
-},400);
+  setTimeout(()=>h.remove(),7000);
+},500);
 
+/* Kiss */
 let n=0;
 function kiss(){
   n++;
