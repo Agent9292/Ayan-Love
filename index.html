@@ -1,135 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Love 💖</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mammi 💖</title>
 
-  <!-- Google Fonts (same as your theme) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --primary-pink: #FF69B4;
-      --deep-pink: #FF1493;
-      --gradient-soft: linear-gradient(135deg, #FFB6C1, #FFF0F5, #FF69B4);
-      --gradient-primary: linear-gradient(135deg, #FF69B4, #FF1493, #DC143C);
-      --shadow: rgba(255, 105, 180, 0.3);
+<style>
+:root {
+  --pink1:#FF69B4;
+  --pink2:#FF1493;
+  --bg:linear-gradient(135deg,#FFB6C1,#FFF0F5,#FF69B4);
+  --btn:linear-gradient(135deg,#FF69B4,#FF1493,#DC143C);
+  --shadow:rgba(255,105,180,.35);
+  --h:'Great Vibes',cursive;
+  --s:'Alex Brush',cursive;
+  --b:'Poppins',sans-serif;
+}
 
-      --font-heading: 'Great Vibes', cursive;
-      --font-special: 'Alex Brush', cursive;
-      --font-body: 'Poppins', sans-serif;
-    }
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  min-height:100vh;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--b);
+  overflow:hidden;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* falling hearts */
+.heart{
+  position:absolute;
+  font-size:22px;
+  animation:fall linear infinite;
+  opacity:.8;
+}
+@keyframes fall{
+  from{transform:translateY(-10vh) scale(1)}
+  to{transform:translateY(110vh) scale(1.4)}
+}
 
-    body {
-      min-height: 100vh;
-      background: var(--gradient-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-body);
-      overflow: hidden;
-    }
+.box{
+  background:rgba(255,255,255,.88);
+  padding:3rem 2rem;
+  border-radius:2rem;
+  text-align:center;
+  max-width:420px;
+  width:90%;
+  box-shadow:0 20px 45px var(--shadow);
+  animation:fade 1.4s ease forwards;
+}
+@keyframes fade{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:none}
+}
 
-    /* Floating hearts */
-    .heart {
-      position: absolute;
-      font-size: 20px;
-      color: var(--primary-pink);
-      animation: float 6s infinite ease-in-out;
-      opacity: 0.7;
-    }
+h1{
+  font-family:var(--h);
+  font-size:3.5rem;
+  background:var(--btn);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:.5rem;
+}
 
-    @keyframes float {
-      0% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-30px) scale(1.2); }
-      100% { transform: translateY(0) scale(1); }
-    }
+p{
+  font-family:var(--s);
+  font-size:1.6rem;
+  color:var(--pink2);
+  margin-bottom:2rem;
+}
 
-    .page1 {
-      text-align: center;
-      background: rgba(255,255,255,0.85);
-      padding: 3rem 2rem;
-      border-radius: 2rem;
-      box-shadow: 0 15px 40px var(--shadow);
-      max-width: 400px;
-      width: 90%;
-      position: relative;
-      z-index: 10;
-    }
+.big-heart{
+  font-size:5rem;
+  animation:pulse 1.8s infinite;
+  margin-bottom:2rem;
+}
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+  100%{transform:scale(1)}
+}
 
-    .title {
-      font-family: var(--font-heading);
-      font-size: 3.5rem;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-    }
-
-    .subtitle {
-      font-family: var(--font-special);
-      font-size: 1.8rem;
-      color: var(--deep-pink);
-      margin-bottom: 2rem;
-    }
-
-    .big-heart {
-      font-size: 5rem;
-      animation: pulse 1.8s infinite;
-      margin-bottom: 2rem;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-      100% { transform: scale(1); }
-    }
-
-    .open-btn {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      border-radius: 3rem;
-      background: var(--gradient-primary);
-      color: #fff;
-      font-family: var(--font-special);
-      font-size: 1.6rem;
-      text-decoration: none;
-      box-shadow: 0 10px 25px var(--shadow);
-      transition: 0.3s ease;
-    }
-
-    .open-btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px var(--shadow);
-    }
-  </style>
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  color:#fff;
+  background:var(--btn);
+  padding:1rem 2.8rem;
+  border-radius:3rem;
+  font-family:var(--s);
+  font-size:1.6rem;
+  box-shadow:0 10px 25px var(--shadow);
+  animation:glow 2s infinite alternate;
+}
+@keyframes glow{
+  from{box-shadow:0 0 15px rgba(255,105,180,.6)}
+  to{box-shadow:0 0 30px rgba(255,20,147,.95)}
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Floating hearts -->
-  <div class="heart" style="top:10%; left:15%;">💖</div>
-  <div class="heart" style="top:70%; left:80%;">💕</div>
-  <div class="heart" style="top:40%; left:5%;">💗</div>
-  <div class="heart" style="top:20%; left:85%;">💓</div>
+<div class="box">
+  <h1>Mammi 💖</h1>
+  <p>From your Pappi 💙</p>
 
-  <!-- Page 1 Content -->
-  <div class="page1">
-    <div class="title">My Love</div>
-    <div class="subtitle">Open This 💌</div>
-    <div class="big-heart">❤️</div>
+  <div class="big-heart">❤️</div>
 
-    <!-- Redirect abhi empty -->
-    <a href="#" class="open-btn">Open My Love 💖</a>
-  </div>
+  <a href="#" class="btn">Open My Love 💌</a>
+</div>
+
+<script>
+const hearts=["💖","💕","💗","❤️","💓"];
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=4+Math.random()*3+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7000);
+},400);
+</script>
 
 </body>
 </html>
