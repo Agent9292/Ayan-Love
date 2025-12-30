@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose Your Love 💖</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#FF69B4;
+  --deep:#FF1493;
+  --bg:linear-gradient(135deg,#FFD1DC,#FFF0F5,#FFB6C1);
+  --btn:linear-gradient(135deg,#FF69B4,#FF1493,#DC143C);
+  --shadow:rgba(255,105,180,.35);
+  --h:'Great Vibes',cursive;
+  --s:'Alex Brush',cursive;
+  --b:'Poppins',sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  min-height:100vh;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--b);
+  overflow:hidden;
+}
+
+/* Floating hearts */
+.heart{
+  position:absolute;
+  font-size:20px;
+  opacity:.8;
+  animation:float linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(110vh)}
+  to{transform:translateY(-10vh)}
+}
+
+/* Card */
+.card{
+  background:rgba(255,255,255,.94);
+  padding:3rem 2rem;
+  border-radius:2rem;
+  max-width:480px;
+  width:92%;
+  text-align:center;
+  box-shadow:0 25px 50px var(--shadow);
+  animation:fade 1.2s ease forwards;
+  position:relative;
+  z-index:5;
+}
+@keyframes fade{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:none}
+}
+
+h1{
+  font-family:var(--h);
+  font-size:3.2rem;
+  background:var(--btn);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+  font-family:var(--s);
+  font-size:1.6rem;
+  color:var(--deep);
+  margin-bottom:2rem;
+}
+
+/* Options */
+.options{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.2rem;
+}
+
+.option{
+  border:none;
+  background:linear-gradient(135deg,#FFE4EC,#FFD1DC);
+  padding:1.2rem;
+  border-radius:1.5rem;
+  font-family:var(--s);
+  font-size:1.4rem;
+  cursor:pointer;
+  transition:.35s;
+  box-shadow:0 8px 18px var(--shadow);
+}
+.option:hover{transform:scale(1.05)}
+.option:active{transform:scale(.97)}
+
+.result{
+  margin-top:2rem;
+  font-family:var(--s);
+  font-size:1.6rem;
+  color:var(--deep);
+  min-height:60px;
+}
+
+/* Kiss animation */
+.kiss{
+  position:absolute;
+  font-size:26px;
+  animation:kissPop 1.3s ease forwards;
+}
+@keyframes kissPop{
+  0%{opacity:0;transform:scale(.5)}
+  30%{opacity:1}
+  100%{opacity:0;transform:translateY(-70px) scale(1.4)}
+}
+
+/* Next */
+.next{
+  display:inline-block;
+  margin-top:2.2rem;
+  text-decoration:none;
+  background:var(--btn);
+  color:#fff;
+  padding:.9rem 2.4rem;
+  border-radius:2rem;
+  font-family:var(--s);
+  font-size:1.35rem;
+  box-shadow:0 10px 22px var(--shadow);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Mammi 💕</h1>
+  <div class="subtitle">Choose what Pappi should give you</div>
+
+  <div class="options">
+    <button class="option" onclick="choose('kiss')">💋 A sweet kiss</button>
+    <button class="option" onclick="choose('hug')">🤗 A warm hug</button>
+    <button class="option" onclick="choose('love')">💖 Unlimited love</button>
+  </div>
+
+  <div class="result" id="result"></div>
+
+  <a href="#" class="next">Final Surprise ➜</a>
+</div>
+
+<script>
+/* Background hearts */
+const hearts=["💖","💕","💗","❤️","💓"];
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=4+Math.random()*3+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7000);
+},500);
+
+/* Choice logic */
+function choose(type){
+  const r=document.getElementById("result");
+  r.innerHTML="";
+
+  let text="";
+  if(type==="kiss"){
+    text="Pappi gives Mammi a sweet kiss 💋💖";
+    spawnKiss();
+  }
+  if(type==="hug"){
+    text="Pappi hugs Mammi tightly 🤗💕";
+    spawnKiss();
+  }
+  if(type==="love"){
+    text="Mammi gets unlimited love from Pappi 💖♾️";
+    spawnKiss();
+    spawnKiss();
+  }
+  r.innerText=text;
+}
+
+/* Kiss pop */
+function spawnKiss(){
+  const k=document.createElement("div");
+  k.className="kiss";
+  k.innerText="💋";
+  k.style.left=(45+Math.random()*20)+"%";
+  k.style.top="55%";
+  document.body.appendChild(k);
+  setTimeout(()=>k.remove(),1300);
+}
+</script>
+
+</body>
+</html>
