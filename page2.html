@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mammi 💖</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --pink:#FF69B4;
+  --deep:#FF1493;
+  --bg:linear-gradient(135deg,#FFB6C1,#FFF0F5,#FF69B4);
+  --btn:linear-gradient(135deg,#FF69B4,#FF1493,#DC143C);
+  --shadow:rgba(255,105,180,.35);
+  --h:'Great Vibes',cursive;
+  --s:'Alex Brush',cursive;
+  --b:'Poppins',sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  min-height:100vh;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--b);
+  overflow:hidden;
+}
+
+/* hearts */
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation:float 6s linear infinite;
+  opacity:.8;
+}
+@keyframes float{
+  from{transform:translateY(100vh)}
+  to{transform:translateY(-10vh)}
+}
+
+.box{
+  background:rgba(255,255,255,.9);
+  padding:3rem 2rem;
+  border-radius:2rem;
+  text-align:center;
+  max-width:450px;
+  width:90%;
+  box-shadow:0 20px 45px var(--shadow);
+  animation:fade 1.2s ease forwards;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:none}
+}
+
+h1{
+  font-family:var(--h);
+  font-size:3.2rem;
+  color:var(--deep);
+}
+
+.subtitle{
+  font-family:var(--s);
+  font-size:1.6rem;
+  margin:1rem 0 2rem;
+  color:var(--pink);
+}
+
+/* flower */
+.flower{
+  font-size:5rem;
+  animation:bloom 2s infinite;
+  margin-bottom:1.5rem;
+}
+@keyframes bloom{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.2) rotate(5deg)}
+  100%{transform:scale(1)}
+}
+
+/* kiss */
+.kiss-area{
+  margin:2rem 0;
+}
+
+.kiss-count{
+  font-family:var(--h);
+  font-size:3rem;
+  color:var(--deep);
+}
+
+.kiss-btn{
+  margin-top:1rem;
+  border:none;
+  background:var(--btn);
+  color:#fff;
+  padding:1rem 2.5rem;
+  border-radius:3rem;
+  font-family:var(--s);
+  font-size:1.5rem;
+  cursor:pointer;
+  box-shadow:0 10px 25px var(--shadow);
+  transition:.3s;
+}
+.kiss-btn:hover{transform:scale(1.05)}
+
+/* next */
+.next{
+  display:inline-block;
+  margin-top:2.5rem;
+  text-decoration:none;
+  color:#fff;
+  background:var(--btn);
+  padding:.9rem 2.2rem;
+  border-radius:2rem;
+  font-family:var(--s);
+  font-size:1.3rem;
+  box-shadow:0 8px 20px var(--shadow);
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>For Mammi 💖</h1>
+  <div class="subtitle">A flower from your Pappi 💙</div>
+
+  <div class="flower">🌸</div>
+
+  <div class="kiss-area">
+    <div class="kiss-count"><span id="count">0</span> 💋</div>
+    <button class="kiss-btn" onclick="sendKiss()">Send a Kiss 💋</button>
+  </div>
+
+  <!-- link abhi empty -->
+  <a href="#" class="next">Next Surprise ➜</a>
+</div>
+
+<script>
+/* falling hearts */
+const hearts=["💖","💕","💗","❤️"];
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=4+Math.random()*3+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7000);
+},500);
+
+/* kiss counter */
+let c=0;
+function sendKiss(){
+  c++;
+  document.getElementById("count").innerText=c;
+}
+</script>
+
+</body>
+</html>
